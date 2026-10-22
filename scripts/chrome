@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Chrome inside the container. --no-sandbox is required because the container owns the kernel namespaces;
+# the profile lives in a named volume so logins survive restarts.
+exec /usr/bin/google-chrome-stable \
+  --no-sandbox \
+  --disable-dev-shm-usage \
+  --no-first-run \
+  --no-default-browser-check \
+  --password-store=basic \
+  --user-data-dir=/home/agent/.chrome-profile \
+  "$@"

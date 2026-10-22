@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# ChatGPT/Codex sign-in in a terminal. Opens Chrome for the browser leg when the CLI asks for it.
+exec codex login "$@"

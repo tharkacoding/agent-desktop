@@ -1,0 +1,33 @@
+services:
+  desktop:
+    build: .
+    restart: unless-stopped
+    shm_size: 2gb
+    init: true
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:6080:6080"   # noVNC (the desktop in your browser)
+      - "127.0.0.1:7860:7860"   # AgentOS gateway
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - chrome-profile:/home/agent/.chrome-profile
+      - codex-home:/home/agent/.codex
+      - opencode-data:/home/agent/.local/share/opencode
+      - agent-platform:/home/agent/agent-platform
+      - agentos-data:/data
+      - ./shared:/home/agent/shared
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:6080/vnc.html"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+volumes:
+  chrome-profile:
+  codex-home:
+  opencode-data:
+  agent-platform:
+  agentos-data:

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Login pages (OAuth, device codes, "open in browser") must land in the desktop Chrome,
+# not in a browser that does not exist.
+exec /usr/local/bin/chrome "$@"

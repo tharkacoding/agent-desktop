@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Drop into the AgentOS checkout with a shell.
+cd /home/agent/agent-platform && exec bash

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# OpenCode sign-in. It reads OPENAI_API_KEY / ANTHROPIC_API_KEY / OPENROUTER_API_KEY from the environment;
+# this command is for providers that need an interactive login instead.
+exec opencode auth login "$@"

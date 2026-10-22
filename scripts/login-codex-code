@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Headless-friendly Codex sign-in: prints a code to type on another device.
+exec codex login --device-auth "$@"

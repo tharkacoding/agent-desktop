@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Open the AgentOS UI (gateway on 127.0.0.1:7860) in the desktop Chrome.
+exec /usr/local/bin/chrome "http://127.0.0.1:7860" "$@"

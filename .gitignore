@@ -1,0 +1,13 @@
+# secrets
+.env
+
+# host folder shared with the container
+shared/
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+.vscode/
+.idea/
