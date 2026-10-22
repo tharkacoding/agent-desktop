@@ -49,11 +49,11 @@ runuser -u "$AGENT" -- env HOME=/home/agent GIT_TERMINAL_PROMPT=0 bash -lc '
   cd /home/agent/agent-platform
   if [ -z "$(ls -A . 2>/dev/null)" ]; then
     echo "[entrypoint] cloning agent-platform"
-    git clone https://github.com/tharkacoding/agent-platform.git .
+    git clone https://github.com/tharkacoding/agent-platform.git . || echo "[entrypoint] clone failed - continuing"
   else
     git pull --ff-only || echo "[entrypoint] git pull skipped (offline or diverged) - continuing"
   fi
-'
+' || echo "[entrypoint] AgentOS checkout step failed - continuing"
 
 runuser -u "$AGENT" -- env HOME=/home/agent bash -lc '
   set -u
